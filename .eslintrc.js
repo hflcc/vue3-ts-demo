@@ -6,7 +6,7 @@ module.exports = {
       sourceType: 'module', // Allows for the use of imports
       ecmaFeatures: {
         // tsx: true, // Allows for the parsing of JSX
-        jsx: true,
+        // jsx: true,
       },
     },
     // settings: {
