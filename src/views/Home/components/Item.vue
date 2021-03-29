@@ -14,10 +14,9 @@ export default {
       default: () => {}
     }
   },
-  data() {
-    return {}
-  },
-  methods: {}
+  setup(props, context) {
+
+  }
 }
 </script>
 

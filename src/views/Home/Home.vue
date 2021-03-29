@@ -2,48 +2,58 @@
  * Created by mac on 2021-03-20 22:58
  */
 <template>
-  <div>{{ count }}</div>
-  <div>{{ reactObj.age }}</div>
+  <div>count: {{ count }}</div>
+  <div>state.age: {{ state.age }}</div>
   <button @click="add">click me</button>
   <Item v-for="item in List" :datas="item"></Item>
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent, onUpdated } from 'vue';
+import { ref, reactive, defineComponent, onUpdated, watch } from 'vue';
 import { ListItem } from "@/ts/listItem";
-import Item from './components/Item';
+import Item from './components/Item.vue';
 
 export default defineComponent({
   name: "Home",
   components: {
     Item
   },
-  setup(props) {
+  setup(props, context) {
     let count = ref(0);
-    const obj = { age: 9 }
 
-    const reactObj = reactive(obj);
-    const add = () => { reactObj.age++; count++;}
+    const state = reactive({ age: 9 });
+    const add = () => {
+      state.age++;
+    }
 
     let List: ListItem<number>[] = [
       {
         age: 123,
-        name: 'xiaoming'
+        name: 'xiaoming',
+        hobby: 'play',
       }
     ]
 
+    watch(
+      () => state.age,
+      (newVal, oldVal) => {
+        console.log(newVal, oldVal)
+      }
+    )
+
+
     onUpdated(() => {
-      console.log(obj)
+
     })
-    console.log('count', count)
-    console.log('reactObj', reactObj)
-    return {
+
+    const ob = {
       count,
-      reactObj,
-      obj,
+      state,
       add,
       List
     }
+    console.log(ob)
+    return ob
   }
 })
 </script>
