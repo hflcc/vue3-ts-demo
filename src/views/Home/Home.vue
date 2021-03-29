@@ -2,54 +2,50 @@
  * Created by mac on 2021-03-20 22:58
  */
 <template>
-  <div>{{ refObj.age }}</div>
+  <div>{{ count }}</div>
+  <div>{{ reactObj.age }}</div>
   <button @click="add">click me</button>
   <Item v-for="item in List" :datas="item"></Item>
 </template>
 
 <script lang="ts">
-import { ref, defineAsyncComponent, onUpdated } from 'vue';
+import { ref, reactive, defineComponent, onUpdated } from 'vue';
+import { ListItem } from "@/ts/listItem";
+import Item from './components/Item';
 
-declare interface ListItem {
-  name: string,
-  age: number
-}
-
-export default {
+export default defineComponent({
   name: "Home",
   components: {
-    Item: defineAsyncComponent(() => import('./components/Item.vue'))
-  },
-  props: {
-    typeList: {
-      type: Array,
-      default: () => []
-    },
+    Item
   },
   setup(props) {
+    let count = ref(0);
     const obj = { age: 9 }
-    const List: ListItem[] = [
+
+    const reactObj = reactive(obj);
+    const add = () => { reactObj.age++; count++;}
+
+    let List: ListItem<number>[] = [
       {
-        aaa: '333',
-        pick: 'ddd',
+        age: 123,
         name: 'xiaoming'
       }
     ]
 
-    const refObj = ref(obj)
-    const add = () => { refObj.value.age++; }
-
     onUpdated(() => {
-      console.log('updated!')
+      console.log(obj)
     })
-
+    console.log('count', count)
+    console.log('reactObj', reactObj)
     return {
-      refObj,
+      count,
+      reactObj,
+      obj,
       add,
       List
     }
   }
-}
+})
 </script>
 
 <style scoped lang="less">

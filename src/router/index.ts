@@ -2,6 +2,10 @@ import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import(/* webpackChunkName: 'Home' */'../views/Home/Home.vue'),
