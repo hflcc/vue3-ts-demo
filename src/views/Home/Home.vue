@@ -5,11 +5,14 @@
   <div>count: {{ count }}</div>
   <div>state.age: {{ state.age }}</div>
   <button @click="add">click me</button>
+  <div class='split-line'></div>
+  <button @click='goAboutPage'>跳转About页</button>
   <Item v-for="item in List" :datas="item"></Item>
 </template>
 
 <script lang="ts">
 import { ref, reactive, defineComponent, onUpdated, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router'
 import { ListItem } from "@/ts/listItem";
 import Item from './components/Item.vue';
 
@@ -19,11 +22,18 @@ export default defineComponent({
     Item
   },
   setup(props, context) {
+    const router = useRouter();
     let count = ref(0);
 
     const state = reactive({ age: 9 });
     const add = () => {
       state.age++;
+    }
+
+    const goAboutPage = () => {
+      router.push({
+        path: '/about'
+      })
     }
 
     let List: ListItem<number>[] = [
@@ -50,7 +60,8 @@ export default defineComponent({
       count,
       state,
       add,
-      List
+      List,
+      goAboutPage
     }
     console.log(ob)
     return ob

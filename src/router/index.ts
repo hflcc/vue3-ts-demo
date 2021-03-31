@@ -3,7 +3,7 @@ import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/home',
   },
   {
     path: '/home',
@@ -14,6 +14,9 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: 'About' */'../views/About/About.vue'),
+    meta: {
+      cache: true
+    }
   },
 ];
 

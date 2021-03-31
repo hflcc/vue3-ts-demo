@@ -1,6 +1,6 @@
 import { createApp, AppConfig } from 'vue'
 import App from './App.vue'
-import './index.css'
+import './index.less'
 import router from './router'
 import store from './store'
 

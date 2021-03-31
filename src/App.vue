@@ -1,5 +1,8 @@
 <template>
-  <router-view />
+  <keep-alive v-if='$route.meta.cache'>
+    <router-view />
+  </keep-alive>
+  <router-view v-else></router-view>
 </template>
 
 <script>
