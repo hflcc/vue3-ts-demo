@@ -2,7 +2,9 @@
  * Created by mac on 2021-03-20 22:58
  */
 <template>
-  <div></div>
+  <div>
+    我是about啦
+  </div>
 </template>
 
 <script>

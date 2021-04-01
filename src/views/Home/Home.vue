@@ -2,12 +2,14 @@
  * Created by mac on 2021-03-20 22:58
  */
 <template>
-  <div>count: {{ count }}</div>
-  <div>state.age: {{ state.age }}</div>
-  <button @click="add">click me</button>
-  <div class='split-line'></div>
-  <button @click='goAboutPage'>跳转About页</button>
-  <Item v-for="item in List" :datas="item"></Item>
+  <div class='home-page'>
+    <div>count: {{ count }}</div>
+    <div>state.age: {{ state.age }}</div>
+    <button @click="add">click me</button>
+    <div class='split-line'></div>
+    <button @click='goAboutPage'>跳转About页</button>
+    <Item v-for="item in List" :datas="item"></Item>
+  </div>
 </template>
 
 <script lang="ts">

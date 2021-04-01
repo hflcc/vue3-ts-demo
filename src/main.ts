@@ -1,6 +1,7 @@
 import { createApp, AppConfig } from 'vue'
 import App from './App.vue'
-import './index.less'
+import './index.css';
+import "./common/style/base.less";
 import router from './router'
 import store from './store'
 
