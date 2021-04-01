@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { ref, reactive, defineComponent, onUpdated, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 import { ListItem } from "@/ts/listItem";
 import Item from './components/Item.vue';
 
