@@ -8,7 +8,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'Home',
-    component: () => import(/* webpackChunkName: 'Home' */'../views/Home/Home.vue'),
+    component: () => import('../views/Home/Home.vue'),
     meta: {
       cache: true
     }
@@ -16,7 +16,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: 'About' */'../views/About/About.vue'),
+    component: () => import('../views/About/About.vue'),
     meta: {
       cache: false
     }
