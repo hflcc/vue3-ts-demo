@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, defineComponent, onUpdated, watch } from 'vue';
+import { ref, reactive, provide, defineComponent, onUpdated, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { ListItem } from "@/ts/listItem";
 import Item from './components/Item.vue';
@@ -57,6 +57,8 @@ export default defineComponent({
     onUpdated(() => {
 
     })
+
+    provide('state', state)
 
     const ob = {
       count,
